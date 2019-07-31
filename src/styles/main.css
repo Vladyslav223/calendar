@@ -17,7 +17,9 @@ body {
   display: grid;
   grid-template-columns: repeat(7, 100px);
   grid-gap: 1px;
-  grid-column-start: 3;
+  width: 706px;
+  margin: auto;
+  margin-top: 8%;
 }
 
 .cell {
@@ -32,6 +34,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
 }
 .cell:hover {
   background-color: pink;
