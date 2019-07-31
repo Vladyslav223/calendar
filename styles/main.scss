@@ -10,14 +10,16 @@ body {
   display: grid;
   grid-template-columns: repeat(7, 100px);
   grid-gap: 1px;
-  grid-column-start:3;
+  width: 706px;
+  margin: auto;
+  margin-top: 8%;
 }
 
 .cell {
   &:hover {
     background-color: pink;
-    cursor: pointer;    
-    bottom: 20px; 
+    cursor: pointer;
+    bottom: 20px;
   }
   position: relative;
   bottom: 0;
@@ -30,6 +32,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
 }
 
 
@@ -55,31 +58,31 @@ body {
  & .cell-1 {
   grid-column: 2;
  }
-} 
+}
 
 .calendar-wed {
   & .cell-1 {
     grid-column: 3;
    }
-} 
+}
 
 .calendar-thu {
   & .cell-1 {
     grid-column: 4;
    }
-} 
+}
 
 .calendar-fri {
   & .cell-1 {
     grid-column: 5;
    }
-} 
+}
 
 .calendar-sat {
   & .cell-1 {
     grid-column: 6;
    }
-} 
+}
 
 .calendar-sun{
   & .cell-1 {
