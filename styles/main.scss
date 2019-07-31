@@ -5,3 +5,84 @@
 body {
   background: $c-gray;
 }
+
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 100px);
+  grid-gap: 1px;
+  grid-column-start:3;
+}
+
+.cell {
+  &:hover {
+    background-color: pink;
+    cursor: pointer;    
+    bottom: 20px; 
+  }
+  position: relative;
+  bottom: 0;
+  transition: background-color 0.5s linear, bottom 0.5s;
+  height:100px;
+  background: #eee;
+  border: 1px solid black;
+  font-size: 30px;
+  font-family: arial;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.calendar-30 {
+ & .cell-31 {
+   display: none;
+ }
+}
+
+.calendar-29 {
+  & .cell-31, .cell-30 {
+    display: none;
+  }
+}
+
+.calendar-28 {
+  & .cell-31, .cell-30, .cell-29 {
+    display: none;
+  }
+}
+
+.calendar-tue {
+ & .cell-1 {
+  grid-column: 2;
+ }
+} 
+
+.calendar-wed {
+  & .cell-1 {
+    grid-column: 3;
+   }
+} 
+
+.calendar-thu {
+  & .cell-1 {
+    grid-column: 4;
+   }
+} 
+
+.calendar-fri {
+  & .cell-1 {
+    grid-column: 5;
+   }
+} 
+
+.calendar-sat {
+  & .cell-1 {
+    grid-column: 6;
+   }
+} 
+
+.calendar-sun{
+  & .cell-1 {
+    grid-column: 7;
+   }
+}
