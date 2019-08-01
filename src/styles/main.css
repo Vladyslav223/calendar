@@ -22,7 +22,7 @@ body {
   margin-top: 8%;
 }
 
-.cell {
+.calendar div {
   position: relative;
   bottom: 0;
   transition: background-color 0.5s linear, bottom 0.5s;
@@ -36,44 +36,44 @@ body {
   align-items: center;
   box-sizing: border-box;
 }
-.cell:hover {
+.calendar div:hover {
   background-color: pink;
   cursor: pointer;
   bottom: 20px;
 }
 
-.calendar-30 .cell-31 {
+.calendar-30 div:nth-child(31) {
   display: none;
 }
 
-.calendar-29 .cell-31, .calendar-29 .cell-30 {
+.calendar-29 div:nth-child(31), .calendar-29 div:nth-child(30) {
   display: none;
 }
 
-.calendar-28 .cell-31, .calendar-28 .cell-30, .calendar-28 .cell-29 {
+.calendar-28 div:nth-child(31), .calendar-28 div:nth-child(30), .calendar-28 div:nth-child(29) {
   display: none;
 }
 
-.calendar-tue .cell-1 {
+.calendar-tue div:first-child {
   grid-column: 2;
 }
 
-.calendar-wed .cell-1 {
+.calendar-wed div:first-child {
   grid-column: 3;
 }
 
-.calendar-thu .cell-1 {
+.calendar-thu div:first-child {
   grid-column: 4;
 }
 
-.calendar-fri .cell-1 {
+.calendar-fri div:first-child {
   grid-column: 5;
 }
 
-.calendar-sat .cell-1 {
+.calendar-sat div:first-child {
   grid-column: 6;
 }
 
-.calendar-sun .cell-1 {
+.calendar-sun div:first-child {
   grid-column: 7;
 }
