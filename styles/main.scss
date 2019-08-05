@@ -36,56 +36,53 @@ body {
 }
 
 
-.calendar-30 {
- & div:nth-child(31){
-   display: none;
- }
-}
 
-.calendar-29 {
-  & div:nth-child(31), div:nth-child(30) {
-    display: none;
+$list: 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'son';
+
+
+ @for $i from 1 through length($list){
+    .calendar-#{nth($list, $i)}{
+      & div:first-child { grid-column:$i;}
+    }
+  }
+$list2: 30, 29, 28;
+
+  @for $j from nth($list2, 1) through nth($list2, length($list2)){
+    @if($j == 30){
+    .calendar-#{$j}{
+      & div:nth-child(31){
+        display: none;
+      }
+    }
+  }
+  @elseif($j == 29){
+    .calendar-#{$j}{
+      & div:nth-child(30){
+        display: none;
+      }
+      & div:nth-child(31){
+        display: none;
+      }
+    }
+  }
+  @else{
+    .calendar-#{$j}{
+      & div:nth-child(30){
+        display: none;
+      }
+      & div:nth-child(29){
+        display: none;
+      }
+      & div:nth-child(31){
+        display: none;
+      }
+    }
   }
 }
-
-.calendar-28 {
-  & div:nth-child(31), div:nth-child(30), div:nth-child(29) {
-    display: none;
+@for $e from 1 through 31 {
+  .calendar div:nth-child(#{$e}){
+    &::before {
+      content: "#{$e}";
+    }
   }
-}
-
-.calendar-tue {
- & div:first-child {
-  grid-column: 2;
- }
-} 
-
-.calendar-wed {
-  & div:first-child {
-    grid-column: 3;
-   }
-} 
-
-.calendar-thu {
-  & div:first-child {
-    grid-column: 4;
-   }
-} 
-
-.calendar-fri {
-  & div:first-child {
-    grid-column: 5;
-   }
-} 
-
-.calendar-sat {
-  & div:first-child {
-    grid-column: 6;
-   }
-} 
-
-.calendar-sun{
-  & div:first-child {
-    grid-column: 7;
-   }
 }
