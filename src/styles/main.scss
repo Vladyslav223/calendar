@@ -5,3 +5,84 @@
 body {
   background: $c-gray;
 }
+
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 100px);
+  grid-gap: 1px;
+  width: 706px;
+  margin: auto;
+  margin-top: 8%;
+}
+
+.calendar div {
+  &:hover {
+    background-color: pink;
+    cursor: pointer;    
+    bottom: 20px; 
+  }
+  position: relative;
+  bottom: 0;
+  transition: background-color 0.5s linear, bottom 0.5s;
+  height:100px;
+  background: #eee;
+  border: 1px solid black;
+  font-size: 30px;
+  font-family: arial;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+
+
+$list: 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'son';
+
+
+ @for $i from 1 through length($list){
+    .calendar-#{nth($list, $i)}{
+      & div:first-child { grid-column:$i;}
+    }
+  }
+$list2: 30, 29, 28;
+
+  @for $j from nth($list2, 1) through nth($list2, length($list2)){
+    @if($j == 30){
+    .calendar-#{$j}{
+      & div:nth-child(31){
+        display: none;
+      }
+    }
+  }
+  @elseif($j == 29){
+    .calendar-#{$j}{
+      & div:nth-child(30){
+        display: none;
+      }
+      & div:nth-child(31){
+        display: none;
+      }
+    }
+  }
+  @else{
+    .calendar-#{$j}{
+      & div:nth-child(30){
+        display: none;
+      }
+      & div:nth-child(29){
+        display: none;
+      }
+      & div:nth-child(31){
+        display: none;
+      }
+    }
+  }
+}
+@for $e from 1 through 31 {
+  .calendar div:nth-child(#{$e}){
+    &::before {
+      content: "#{$e}";
+    }
+  }
+}
